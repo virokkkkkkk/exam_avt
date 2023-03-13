@@ -39,7 +39,7 @@ def login():
         login = request.form.get('login')
         password = request.form.get('password')
         if login and password:
-            user = Ticket.query.filter_by(login=login).first()
+            user = Ticket.query.filter_by(id=login).first()
             if user and user.check_password(password):
                 login_user(user)
                 flash('Вы успешно аутентифицированы.', 'success')
